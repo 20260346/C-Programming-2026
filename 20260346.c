@@ -1,142 +1,33 @@
+/*#define _CRT_SECURE_NO_WARNINGS // Visual Studio scanf 에러 방지
 #include <stdio.h>
 
-/*int main(void)
-{
-    double inch, cm;
-    double celsius, fahrenheit;
-    double radius, area;
+int main(void) {
+    int mid, final_exam, assignment;
 
-    // Inch to Centimeter
-    printf("Enter inch: ");
-    scanf_s("%lf", &inch);
+    // 입력받을 변수 앞에 주소 연산자(&)를 작성합니다.
+    scanf("%d %d %d", &mid, &final_exam, &assignment);
 
-    cm = inch * 2.54;
+    double weighted_score = (mid * 0.3) + (final_exam * 0.4) + (assignment * 0.3);
 
-    printf("%.2f inch = %.2f cm\n", inch, cm);
-
-    // Celsius to Fahrenheit
-    printf("Enter Celsius: ");
-    scanf_s("%lf", &celsius);
-
-    fahrenheit = celsius * 9.0 / 5.0 + 32.0;
-
-    printf("%.2f C = %.2f F\n", celsius, fahrenheit);
-
-    // Circle Area
-    printf("Enter radius: ");
-    scanf_s("%lf", &radius);
-
-    area = 3.141592 * radius * radius;
-
-    printf("Circle area = %.2f\n", area);
+    printf("weighted_score=%.2f\n", weighted_score);
 
     return 0;
 }*/
 
-/*#include <stdio.h>
-int main(void)
-{
-    // 15
-    int total;
-    int hours;
-    int minutes;
-    int seconds;
-
-    printf("Enter seconds: ");
-    scanf_s("%d", &total);
-
-    hours = total / 3600;
-    minutes = (total % 3600) / 60;
-    seconds = total % 60;
-
-    printf("%d sec = %d hr %d min %d sec\n\n",
-        total, hours, minutes, seconds);
-
-
-    // 16
-    int score;
-    int attendance;
-    int passed;
-
-    printf("Enter score: ");
-    scanf_s("%d", &score);
-
-    printf("Enter attendance: ");
-    scanf_s("%d", &attendance);
-
-    passed = (score >= 60) && (attendance >= 80);
-
-    if (passed)
-        printf("PASS\n\n");
-    else
-        printf("FAIL\n\n");
-
-
-    // 17
-    unsigned int permission;
-
-    printf("Enter permission (1=READ, 2=WRITE): ");
-    scanf_s("%u", &permission);
-
-    if ((permission & 0x01) && (permission & 0x02))
-    {
-        permission = permission | 0x04;
-    }
-
-    printf("Final permission = 0x%02X\n", permission);
-
-    return 0;
-}*/
-
-/*#include <stdio.h>
-
-int main(void)
-{
-    int year;
-
-    scanf_s("%d", &year);
-
-    if (year % 400 == 0)
-    {
-        printf("1\n");
-    }
-    else if (year % 100 == 0)
-    {
-        printf("0\n");
-    }
-    else if (year % 4 == 0)
-    {
-        printf("1\n");
-    }
-    else
-    {
-        printf("0\n");
-    }
-
-    return 0;
-}*/
-
+#define _CRT_SECURE_NO_WARNINGS // Visual Studio scanf 경고/오류 방지 (최상단 작성)
 #include <stdio.h>
 
-int main(void)
-{
-    int amount;
+int main(void) {
+    double height, weight;
 
-    scanf_s("%d", &amount);
+    // double 형 변수 입력에는 %lf 사용 및 주소 연산자(&) 필수
+    scanf("%lf %lf", &height, &weight);
 
-    int won10000 = amount / 10000;
-    amount %= 10000;
+    // BMI 계산: 몸무게 / (키 * 키)
+    double bmi = weight / (height * height);
 
-    int won1000 = amount / 1000;
-    amount %= 1000;
-
-    int won100 = amount / 100;
-    amount %= 100;
-
-    int won10 = amount / 10;
-
-    printf("10000:%d 1000:%d 100:%d 10:%d\n",
-        won10000, won1000, won100, won10);
+    // 소수점 둘째 자리까지 출력
+    printf("bmi=%.2f\n", bmi);
 
     return 0;
 }
