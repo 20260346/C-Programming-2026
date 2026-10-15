@@ -1,0 +1,15 @@
+#include <stido.h>
+
+int main(void) {
+	int korean;
+	int math;
+	double average;
+
+	scanf("%d", &korean);
+	scanf("%d", &math);
+
+	average = (korean + math) / 2.0;
+
+	printf("average: %.2f\n", average);
+	return 0;
+}
